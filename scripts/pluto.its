@@ -155,9 +155,9 @@
 			fpga = "fpga@1";
 		};
 
-		config@9 { /* This one is actually RevB */
+		config@9 { /* This one is actually RevC */
 			description = "Linux with fpga RevB";
-			fdt = "fdt@2";
+			fdt = "fdt@3";
 			kernel = "linux_kernel@1";
 			ramdisk = "ramdisk@1";
 			fpga = "fpga@1";
