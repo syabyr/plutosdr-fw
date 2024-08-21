@@ -1,0 +1,97 @@
+diff --git a/board/pluto/busybox-1.25.0.config b/board/pluto/busybox-1.25.0.config
+index 88728cc9f2..fa60b628f4 100644
+--- a/board/pluto/busybox-1.25.0.config
++++ b/board/pluto/busybox-1.25.0.config
+@@ -884,6 +884,12 @@ CONFIG_NAMEIF=y
+ # CONFIG_NC_SERVER is not set
+ # CONFIG_NC_EXTRA is not set
+ # CONFIG_NC_110_COMPAT is not set
++
++CONFIG_NC=y
++CONFIG_NC_SERVER=y
++CONFIG_NC_EXTRA=y
++CONFIG_NC_110_COMPAT=y
++
+ CONFIG_NETSTAT=y
+ # CONFIG_FEATURE_NETSTAT_WIDE is not set
+ # CONFIG_FEATURE_NETSTAT_PRG is not set
+diff --git a/board/pluto/motd b/board/pluto/motd
+index a3b3f6f664..361b03ca3c 100644
+--- a/board/pluto/motd
++++ b/board/pluto/motd
+@@ -1,10 +1,11 @@
+ Welcome to:
+-______ _       _        _________________
+-| ___ \ |     | |      /  ___|  _  \ ___ \
+-| |_/ / |_   _| |_ ___ \ `--.| | | | |_/ /
+-|  __/| | | | | __/ _ \ `--. \ | | |    /
+-| |   | | |_| | || (_) /\__/ / |/ /| |\ \
+-\_|   |_|\__,_|\__\___/\____/|___/ \_| \_|
+-
++  _____  _     _    _ _______ ____      __   __  ____          _  ____     ________
++ |  __ \| |   | |  | |__   __/ __ \     \ \ / / |  _ \        | |/ /\ \   / /___  /
++ | |__) | |   | |  | |  | | | |  | |_____\ V /  | |_) |_   _  | ' /  \ \_/ /   / / 
++ |  ___/| |   | |  | |  | | | |  | |______> <   |  _ <| | | | |  <    \   /   / /  
++ | |    | |___| |__| |  | | | |__| |     / . \  | |_) | |_| | | . \    | |   / /__ 
++ |_|    |______\____/   |_|  \____/     /_/ \_\ |____/ \__, | |_|\_\   |_|  /_____|
++                                                        __/ |                      
++                                                       |___/                       
+ #BUILD#
+-https://wiki.analog.com/university/tools/pluto
++https://github.com/kangyuzhe666/ZYNQ7010-7020_AD9363
+diff --git a/configs/zynq_pluto_defconfig b/configs/zynq_pluto_defconfig
+index 6203766e04..b633bc15cb 100644
+--- a/configs/zynq_pluto_defconfig
++++ b/configs/zynq_pluto_defconfig
+@@ -38,7 +38,7 @@ BR2_PACKAGE_LINUX_FIRMWARE_RTL_87XX=y
+ BR2_PACKAGE_LINUX_FIRMWARE_RTL_88XX=y
+ BR2_PACKAGE_INPUT_EVENT_DAEMON=y
+ BR2_PACKAGE_UBOOT_TOOLS=y
+-BR2_PACKAGE_ZLIB=y
++
+ BR2_PACKAGE_LIBAD9361_IIO=y
+ BR2_PACKAGE_LIBGPIOD=y
+ BR2_PACKAGE_LIBGPIOD_TOOLS=y
+@@ -62,3 +62,42 @@ BR2_TARGET_ROOTFS_CPIO_UIMAGE=y
+ BR2_PACKAGE_HOST_DOSFSTOOLS=y
+ BR2_PACKAGE_HOST_GENIMAGE=y
+ BR2_PACKAGE_HOST_MTOOLS=y
++
++
++BR2_PACKAGE_NFS_UTILS=y
++BR2_PACKAGE_GPSD=y
++BR2_PACKAGE_GPSD_NTP_SHM=y
++BR2_PACKAGE_GPSD_UBX=y
++
++BR2_PACKAGE_PHP=y
++BR2_PACKAGE_PHP_EXT_SOCKETS=y
++
++BR2_PACKAGE_LIBV4L=y
++BR2_PACKAGE_LIBV4L_UTILS=y
++
++BR2_PACKAGE_X264=y
++BR2_PACKAGE_FFTW_SINGLE=y
++BR2_PACKAGE_FFTW_FAST=y
++BR2_PACKAGE_BC=y
++
++-BR2_PACKAGE_DROPBEAR_LOCALOPTIONS_FILE="board/pluto/dropbrear_localoptions.h"
++BR2_PACKAGE_DROPBEAR_MOTD=y
++BR2_PACKAGE_HOSTAPD=y
++
++BR2_PACKAGE_MOSQUITTO=y
++BR2_PACKAGE_NTP=y
++
++BR2_PACKAGE_OPKG=y
++BR2_PACKAGE_NANO=y
++
++BR2_PACKAGE_FFMPEG_43=y
++BR2_PACKAGE_ALSA_UTILS=y
++BR2_PACKAGE_ALSA_UTILS_APLAY=y
++BR2_PACKAGE_FFMPEG=y
++BR2_PACKAGE_FFMPEG_GPL=y
++BR2_PACKAGE_FFMPEG_SWSCALE=y
++BR2_PACKAGE_FFMPEG_ENCODERS="aac mpeg2video rawvideo libx264 dvbsub bmp png"
++BR2_PACKAGE_FFMPEG_DECODERS="aac aac_latm mpeg2video mp2 yuv4 rawvideo mjpeg h264 mp3 pcm_s16le hevc flv srt"
++BR2_PACKAGE_FFMPEG_MUXERS="adts flv mpegts rawvideo image2"
++BR2_PACKAGE_FFMPEG_DEMUXERS="aac h264 mpegts mpegvideo pcm_s16le rawvideo rtp hevc flv dvbsub"
++BR2_PACKAGE_FFMPEG_PARSERS="aac h264 mjpeg mpegaudio mpegvideo hevc"
